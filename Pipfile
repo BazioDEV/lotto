@@ -12,6 +12,7 @@ djangorestframework = "*"
 celery = "*"
 lxml = "*"
 html5lib = "*"
+django-celery-beat = "*"
 
 [dev-packages]
 

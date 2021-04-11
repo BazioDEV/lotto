@@ -7,7 +7,6 @@ import json
 
 
 
-
 @shared_task
 def create_gov_thai():
     print('Creating data..')
@@ -18,9 +17,10 @@ def create_gov_thai():
     FirstPrize = bs.find_all('div', attrs={'class':'xres'})[0].get_text()
     ThreeFront = bs.find_all('div', attrs={'class':'xres'})[2].get_text()[0:3]
     ThreeFrontTwo = bs.find_all('div', attrs={'class':'xres'})[2].get_text()[3:6]
+    ThreeUnder = bs.find_all('div', attrs={'class':'xres'})[3].get_text()[0:3]
     ThreeUnderTwo = bs.find_all('div', attrs={'class':'xres'})[3].get_text()[3:6]
     TwoUnder = bs.find_all('div', attrs={'class':'xres'})[1].get_text()
-    
+        
     print({'title':title, 'date':date, 'FirstPrize':FirstPrize, 'ThreeFront':ThreeFront, 'ThreeFrontTwo':ThreeFrontTwo, 'ThreeUnder':ThreeUnder, 'ThreeUnderTwo':ThreeUnderTwo, 'TwoUnder':TwoUnder})
 
     gov_thai.objects.create(
@@ -60,6 +60,8 @@ create_gov_thai()
 if True:
     sleep(5)
     update_gov_thai()
+
+
 
 
 @shared_task
@@ -157,10 +159,11 @@ def update_lao_lotto():
     Two = bs.find_all('strong')[7].get_text()
     
     data = ({'title':title, 'Four':Four, 'Three':Three, 'Two':Two, 'date':date})
-    lao_lotto.objects.filter(date=date).update(**data)
+    lao_lotto.objects.filter(           ).update(**data)
 
 create_lao_lotto()
 if True:
     sleep(15)
     update_lao_lotto()
-    
+    sleep(2)
+    update_gov_thai()

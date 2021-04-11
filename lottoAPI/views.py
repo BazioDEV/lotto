@@ -6,6 +6,7 @@ from .serializers import *
 
 class ResultViewSet(viewsets.ModelViewSet):
     queryset = gov_thai.objects.all()
+    
     serializer_class = gov_thaiSerializer
     
 class VipResultViewSet(viewsets.ModelViewSet):
