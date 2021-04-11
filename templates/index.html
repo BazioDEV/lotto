@@ -1,0 +1,16 @@
+{% extends 'base.html'%} 
+{% load static %}
+{% block title %}หน้าแรก{% endblock title %}
+
+
+{% block content %} 
+{% for d in data %}
+    <h6>Title: {{ d.title }}</h6>
+    <table>
+        <ul>
+            <li>First Prize: {{ d.FirstPrize }}</li>
+            <li>Three Front: {{ d.ThreeFront }}</li>
+        </ul>
+    </table>
+{% endfor %}
+{% endblock content %}

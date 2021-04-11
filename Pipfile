@@ -1,0 +1,19 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+fastapi = "*"
+uvicorn = "*"
+requests = "*"
+beautifulsoup4 = "*"
+djangorestframework = "*"
+celery = "*"
+lxml = "*"
+html5lib = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.7.3"
